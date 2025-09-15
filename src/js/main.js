@@ -1,11 +1,11 @@
 import ProductData from './ProductData.mjs';
-import ProductList from './ProductList';
+import ProductList from './ProductList.mjs';
 
 const dataSource = new ProductData("tents");
-const list = document.querySelector(".product-list");
+const listElement = document.querySelector(".product-list");
 
 const tentList = new ProductList("tents", dataSource, listElement);
-thenList.init();
+tentList.init();
 
 dataSource.getData().then(products => {
     console.log(products);
