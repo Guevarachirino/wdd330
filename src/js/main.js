@@ -5,8 +5,5 @@ const dataSource = new ProductData("tents");
 const list = document.querySelector(".product-list");
 
 const tentList = new ProductList("tents", dataSource, listElement);
-thenList.init();
+tentList.init();
 
-dataSource.getData().then(products => {
-    console.log(products);
-});
