@@ -2,7 +2,7 @@
 // main.js
 
 import Alert from './alert.js';
-const alert = new Alert('./json/alerts.json', 5000); // 5 segundos
+const alert = new Alert('./public/json/alerts.json', 5000); // 5 segundos
 alert.loadAndDisplayAlerts();
 
 import ProductData from './ProductData.mjs';
