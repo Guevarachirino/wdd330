@@ -1,12 +1,11 @@
 
 // main.js
 import Alert from './alert.js'
-
 const alert = new Alert('./json/alerts.json');
 alert.loadAndDisplayAlerts();
 
 import ProductData from './ProductData.mjs';
-import ProductList from './ProductList';
+import ProductList from './ProductList.js';
 
 const dataSource = new ProductData("tents");
 const list = document.querySelector(".product-list");
