@@ -1,8 +1,8 @@
 
 // main.js
-import Alert from './alert.js';
+import Alert from './alert.js'
 
-const alert = new Alert('./alerts.json');
+const alert = new Alert('./json/alerts.json');
 alert.loadAndDisplayAlerts();
 
 import ProductData from './ProductData.mjs';
