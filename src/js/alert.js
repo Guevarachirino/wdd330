@@ -1,40 +1,47 @@
 // Alert.js
 export default class Alert {
-    constructor(jsonPath) {
-        this.jsonPath = jsonPath; // Ruta del archivo alerts.json
+    constructor(alertJsonPath, rotationInterval = 5000) {
+        this.alertJsonPath = alertJsonPath;
+        this.alertContainer = document.querySelector(".alert-banner");
+        this.rotationInterval = rotationInterval;
+        this.alerts = [];
+        this.currentIndex = 0;
+        this.intervalId = null;
     }
 
     async loadAndDisplayAlerts() {
         try {
-            const response = await fetch(this.jsonPath);
-            if (!response.ok) throw new Error('No se pudo cargar alerts.json');
+            const res = await fetch(this.alertJsonPath);
+            if (!res.ok) throw new Error("No se pudo cargar alerts.json");
 
-            const alerts = await response.json();
-            if (!alerts.length) return; // No hay alertas, salir
+            this.alerts = await res.json();
 
-            const section = document.createElement('section');
-            section.classList.add('alert-list');
+            if (!this.alerts.length) return; // No hay alertas
 
-            alerts.forEach(alert => {
-                const p = document.createElement('p');
-                p.textContent = alert.message;
-                p.style.backgroundColor = alert.background;
-                p.style.color = alert.color;
-                p.style.padding = '1rem';
-                p.style.margin = '0';
-                p.style.fontWeight = 'bold';
+            this.showAlert(this.alerts[this.currentIndex]);
 
-                section.appendChild(p);
-            });
+            // Cambiar alertas cada rotationInterval
+            this.intervalId = setInterval(() => {
+                this.currentIndex = (this.currentIndex + 1) % this.alerts.length;
+                this.showAlert(this.alerts[this.currentIndex]);
+            }, this.rotationInterval);
 
-            const main = document.querySelector('main');
-            if (main) {
-                main.prepend(section);
-            } else {
-                console.warn('<main> no encontrado en el HTML.');
-            }
-        } catch (error) {
-            console.error('Error al mostrar alertas:', error);
+        } catch (err) {
+            console.error("Error al mostrar alertas:", err);
         }
+    }
+
+    showAlert(alert) {
+        this.alertContainer.innerHTML = `
+      <div style="
+        background-color: ${alert.background};
+        color: ${alert.color};
+        padding: 1em;
+        text-align: center;
+        font-weight: bold;
+      ">
+        ${alert.message}
+      </div>
+    `;
     }
 }
