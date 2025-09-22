@@ -15,3 +15,10 @@ const tentList = new ProductList("tents", dataSource, listElement);
 dataSource.getData().then(products => {
     console.log(products);
 });
+
+//week 3, step 10(team activity)
+import { loadHeaderFooter } from './utils.mjs';
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadHeaderFooter();
+});
