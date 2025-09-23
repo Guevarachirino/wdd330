@@ -6,7 +6,7 @@ const alert = new Alert('./public/json/alerts.json', 5000); // 5 segundos
 alert.loadAndDisplayAlerts();
 
 import ProductData from './ProductData.mjs';
-import ProductList from './ProductList.js';
+import ProductList from './ProductList.mjs';
 
 const dataSource = new ProductData("tents");
 const listElement = document.querySelector(".product-list");
@@ -22,3 +22,4 @@ import { loadHeaderFooter } from './utils.mjs';
 document.addEventListener('DOMContentLoaded', () => {
   loadHeaderFooter();
 });
+
