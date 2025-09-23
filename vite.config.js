@@ -30,14 +30,4 @@ export default defineConfig({
       },
     },
   },
-  plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'src/public',  // carpeta que quieres copiar (json e imagenes)
-          dest: '', // raíz del dist
-        }
-      ]
-    })
-  ]
 });
