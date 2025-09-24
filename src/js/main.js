@@ -21,7 +21,7 @@ dataSource.getData().then(products => {
 import ProductList from './ProductList.mjs';
 import ProductData from './ProductData.mjs';
 import { loadHeaderFooter } from './utils.mjs';
-import Alert from './Alert.js';
+import Alert from './alert.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Cargar header y footer
