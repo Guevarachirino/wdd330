@@ -16,11 +16,12 @@ dataSource.getData().then(products => {
     console.log(products);
 });*/
 // main.js (o como se llame tu archivo principal)
-//probando 
+// main.js (versión corregida)
+
 import ProductList from './ProductList.mjs';
-import ProductData from './ProductData.mjs'; // Asegúrate de importar esto también
+import ProductData from './ProductData.mjs';
 import { loadHeaderFooter } from './utils.mjs';
-import Alert from './Alert.js'; // <-- Agrega esto arriba
+import Alert from './Alert.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Cargar header y footer
@@ -36,16 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Cargar alertas rotativas
-  const alert = new Alert("/json/alerts.json"); // ✅ Usa la ruta correcta
+  const alert = new Alert("/json/alerts.json");
   alert.loadAndDisplayAlerts();
-});
-
-
-
-//week 3, step 10(team activity)
-import { loadHeaderFooter } from './utils.mjs';
-
-document.addEventListener('DOMContentLoaded', () => {
-  loadHeaderFooter();
 });
 
