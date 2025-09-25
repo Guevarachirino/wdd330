@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 const categories = [
-    { name: 'Tents', image: '/src/public/images/tents.svg', link: '/src/product_listing/index.html?category=tents' },
-    { name: 'Backpacks', image: '/src/public/images/backpacks.svg', link: '/src/product_listing/index.html?category=backpacks' },
-    { name: 'Sleeping Bags', image: '/src/public/images/sleepingbags.svg', link: '/src/product_listing/index.html?category=sleeping-bags' },
-    { name: 'Hammocks', image: '/src/public/images/hammocks.svg', link: '/src/product_listing/index.html?category=hammocks' }
+    { name: 'Tents', image: '/src/public/images/tents.svg' },
+    { name: 'Backpacks', image: '/src/public/images/backpacks.svg' },
+    { name: 'Sleeping Bags', image: '/src/public/images/sleepingbags.svg' },
+    { name: 'Hammocks', image: '/src/public/images/hammocks.svg' }
 ];
 
 function displayCategories() {
