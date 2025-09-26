@@ -17,7 +17,7 @@ async function loadProducts() {
 
 function searchProducts(query) {
     const filtered = allProducts.filter(product =>
-        product.Name.toLowerCase().includes(query.toLowerCase()) // 🔥 Name
+        product.Name.toLowerCase().includes(query.toLowerCase()) 
     );
     displayResults(filtered);
 }
