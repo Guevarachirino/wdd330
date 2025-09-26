@@ -1,6 +1,7 @@
-import ProductData from '../ProductData.mjs';
-import ProductList from '../ProductList.mjs';
-import { loadHeaderFooter } from '../utils.mjs';
+//import { link } from 'fs';
+import ProductData from './ProductData.mjs';
+import ProductList from './ProductList.mjs';
+import { loadHeaderFooter } from './utils.mjs';
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadHeaderFooter();
@@ -17,10 +18,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 const categories = [
-    { name: 'Tents', image: '/src/public/images/tents.svg' },
-    { name: 'Backpacks', image: '/src/public/images/backpacks.svg' },
-    { name: 'Sleeping Bags', image: '/src/public/images/sleepingbags.svg' },
-    { name: 'Hammocks', image: '/src/public/images/hammocks.svg' }
+    { name: 'Tents', image: '/src/public/images/tents.svg', link: '' },
+    { name: 'Backpacks', image: '/src/public/images/backpacks.svg', link: '' },
+    { name: 'Sleeping Bags', image: '/src/public/images/sleepingbags.svg', link: '' },
+    { name: 'Hammocks', image: '/src/public/images/hammocks.svg', link: '' }
 ];
 
 function displayCategories() {

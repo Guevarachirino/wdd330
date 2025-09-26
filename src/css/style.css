@@ -258,44 +258,24 @@ button {
 }
 
 /*week3 css index.html categoria*/
-#categories {
+.categories-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
   padding: 2rem;
+  flex-wrap: wrap;
   text-align: center;
 }
 
-.category-grid {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  padding: 0;
-  margin-top: 2rem;
+.category-item img {
+  width: 80px;
+  height: auto;
 }
 
-.category-grid li {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background: #fff;
-}
-
-.category-grid li:hover {
-  transform: scale(1.05);
-}
-
-.category-grid img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
+.category-item span {
   display: block;
-}
-
-.category-grid span {
-  display: block;
-  padding: 1rem;
+  margin-top: 0.5rem;
   font-weight: bold;
-  color: #333;
 }
 
 
