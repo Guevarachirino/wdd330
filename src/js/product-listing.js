@@ -1,7 +1,7 @@
-import { link } from 'fs';
-import ProductData from '../ProductData.mjs';
-import ProductList from '../ProductList.mjs';
-import { loadHeaderFooter } from '../utils.mjs';
+//import { link } from 'fs';
+import ProductData from './ProductData.mjs';
+import ProductList from './ProductList.mjs';
+import { loadHeaderFooter } from './utils.mjs';
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadHeaderFooter();
