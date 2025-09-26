@@ -1,13 +1,9 @@
-import { getLocalStorage } from "./utils.mjs";
-
-function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-}
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
+  const newItem = `
+  <li class="cart-card divider">
+  <span class="remove" data-id="${item.Id}">X</span>
   <a href="#" class="cart-card__image">
     <img
       src="${item.Image}"
@@ -23,6 +19,29 @@ function cartItemTemplate(item) {
 </li>`;
 
   return newItem;
+}
+
+function renderCartContents() {
+  const cartItems = getLocalStorage("so-cart") || [];
+  if (!cartItems.length) {
+    document.querySelector(".product-list").innerHTML = "<li>No items in cart.</li>";
+    return;
+  }
+  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  document.querySelectorAll(".remove").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const idToRemove = e.target.dataset.id;
+      removeFromCart(idToRemove);
+    });
+  });
+}
+
+function removeFromCart(productId) {
+  const cartItems = getLocalStorage("so-cart") || [];
+  const updatedCart = cartItems.filter(item => item.Id !== productId);
+  setLocalStorage("so-cart", updatedCart);
+  renderCartContents();
 }
 
 renderCartContents();

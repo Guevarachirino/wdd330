@@ -8,13 +8,19 @@ function convertToJson(res) {
 
 export default class ProductData {
   constructor(category) {
-    this.category = category;
-    this.path = `../json/${this.category}.json`;
+    this.path = `public/json/${category}.json`;
   }
-  getData() {
-    return fetch(this.path)
-      .then(convertToJson)
-      .then((data) => data);
+  async getData() {
+    console.log("Fetching:", this.path);
+    try {
+      const response = await fetch(this.path);
+      const data = await convertToJson(response);
+      console.log("Fetched data:", data);
+      return data;
+    } catch (err) {
+      console.error("Error fetching data:", err);
+      throw err;
+    }
   }
   async findProductById(id) {
     const products = await this.getData();

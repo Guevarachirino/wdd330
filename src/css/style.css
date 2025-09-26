@@ -131,6 +131,20 @@ button {
   fill: gray;
 }
 
+.remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.cart-card {
+  position: relative;
+}
+
 /* End cart icon styles */
 
 .mission {

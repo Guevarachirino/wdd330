@@ -2,11 +2,9 @@ import ProductData from './ProductData.mjs';
 import ProductList from './ProductList.mjs';
 
 const dataSource = new ProductData("tents");
-const listElement = document.querySelector(".product-list");
 
-const tentList = new ProductList("tents", dataSource, listElement);
-tentList.init();
+const element = document.querySelector(".product-list");
 
-dataSource.getData().then(products => {
-    console.log(products);
-});
+const productList = new ProductList("Tents", dataSource, element);
+
+productList.init();
