@@ -27,7 +27,7 @@ function displayResults(products) {
     searchResults.innerHTML = "";
 
     if (products.length === 0) {
-        searchResults.innerHTML = "<li>No se encontraron productos.</li>";
+        searchResults.innerHTML = "<li>We don't find any product.</li>";
         return;
     }
 
