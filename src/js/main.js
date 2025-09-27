@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Cargar alertas rotativas
-  const alert = new Alert("/json/alerts.json");
+  const alert = new Alert("./public/json/alerts.json");
   alert.loadAndDisplayAlerts();
 });
 

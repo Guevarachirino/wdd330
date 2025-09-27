@@ -44,15 +44,13 @@ export async function loadTemplate(path) {
 // step 9 header
 
 export async function loadHeaderFooter() {
-  // Cargar las plantillas de header y footer
-  const headerTemplate = await loadTemplate("../public/partials/header.html");
-  const footerTemplate = await loadTemplate("../public/partials/footer.html");
+  const headerTemplate = await loadTemplate("./public/partials/header.html");
+  const footerTemplate = await loadTemplate("./public/partials/footer.html");
 
-  // Obtener los elementos placeholder del DOM
   const headerElement = document.querySelector("#main-header");
   const footerElement = document.querySelector("#main-footer");
 
-  // Renderizar las plantillas en los elementos correspondientes
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
 }
+
