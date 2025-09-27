@@ -24,20 +24,21 @@ import { loadHeaderFooter } from './utils.mjs';
 import Alert from './alert.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Cargar header y footer
+  // Cargar el header y el footer
   loadHeaderFooter();
 
-  // Cargar lista de productos
+  // Crear fuente de datos para los productos de la categoría "tents"
   const dataSource = new ProductData("tents");
+
+  // Obtener el elemento donde se mostrarán los productos
   const listElement = document.querySelector(".product-list");
+
+  // Crear la lista de productos
   const tentList = new ProductList("tents", dataSource, listElement);
+  tentList.init(); // <-- asegúrate de que tu clase ProductList tenga un método init()
 
-  dataSource.getData().then(products => {
-    console.log(products);
-  });
-
-  // Cargar alertas rotativas
-  const alert = new Alert("./public/json/alerts.json");
+  // Cargar las alertas rotativas
+  const alert = new Alert("/json/alerts.json"); // ✅ Ruta corregida (asumiendo que alerts.json está en public/json/)
   alert.loadAndDisplayAlerts();
 });
 
