@@ -241,6 +241,20 @@ button {
   grid-column: 3;
 }
 
+/*week 3 total cart*/
+.cart-footer {
+  padding: 20px;
+  text-align: right;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ccc;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
