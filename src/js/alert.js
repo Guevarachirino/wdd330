@@ -20,7 +20,7 @@ export default class Alert {
 
             this.showAlert(this.alerts[this.currentIndex]);
 
-            // Cambiar alertas cada rotationInterval
+           
             this.intervalId = setInterval(() => {
                 this.currentIndex = (this.currentIndex + 1) % this.alerts.length;
                 this.showAlert(this.alerts[this.currentIndex]);

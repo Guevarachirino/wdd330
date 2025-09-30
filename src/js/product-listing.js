@@ -29,7 +29,7 @@ function displayCategories() {
     const container = document.querySelector('.categories-container');
     if (!container) {
         console.log('No container found!');
-        return; // Salir si no encuentra el contenedor
+        return; 
     }
     container.innerHTML = categories.map(cat => `
         <div class="category-item">
