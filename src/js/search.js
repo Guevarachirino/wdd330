@@ -12,7 +12,6 @@ export function initSearch(parent = document) {
             const response = await fetch("../public/json/tents.json");
             
             const data = await response.json();
-            console.log(data);
         return data.filter((product) => product.Name);
         } catch (error) {
         console.error("Error cargando productos:", error);

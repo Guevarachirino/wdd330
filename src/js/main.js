@@ -15,7 +15,4 @@ const productList = new ProductList("tents", dataSource, listElement);
 
 loadHeaderFooter();
 
-
-
-// IMPORTANTE: Llamar a init() para que se ejecute
 productList.init();

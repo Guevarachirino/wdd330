@@ -30,7 +30,8 @@ export default class ProductDetails {
 
 function productDetailsTemplate(product) {
         // eslint-disable-next-line no-console
-        document.querySelector("h2").textContent = product.Brand.Name;
+    document.querySelector("h2").textContent = product.Brand.Name;
+    console.log(product.Brand);
 
         document.querySelector("h3").textContent = product.NameWithoutBrand;
 
