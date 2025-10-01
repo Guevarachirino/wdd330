@@ -7,7 +7,8 @@ export function qs(selector, parent = document) {
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null;
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
@@ -15,11 +16,13 @@ export function setLocalStorage(key, data) {
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
+  const element = qs(selector);
+  if (!element) return;
+  element.addEventListener("touchend", (event) => {
     event.preventDefault();
     callback();
   });
-  qs(selector).addEventListener("click", callback);
+  element.addEventListener("click", callback);
 }
 
 
@@ -51,18 +54,25 @@ export function renderWithTemplate(template, parentElement, data, callback) {
 
 async function loadTemplate(path) {
   const res = await fetch(path);
-  const template = await res.text();
-  return template;
+  if (!res.ok) {
+    throw new Error("Fail to load");
+  }
+  return await res.text();
 }
 
 
 export async function loadHeaderFooter() {
-  const headerTemplate = await loadTemplate("../partials/header.html");
-  const footerTemplate = await loadTemplate("../partials/footer.html");
+  try {
+    const headerHTML = await loadTemplate('partials/header.html');  // <-- check this path
+    const footerHTML = await loadTemplate('partials/footer.html');  // <-- and this
+    document.querySelector('header').innerHTML = headerHTML;
+    document.querySelector('footer').innerHTML = footerHTML;
 
-  const headerElement = document.querySelector("#main-header");
-  const footerElement = document.querySelector("#main-footer");
-
-  renderWithTemplate(headerTemplate, headerElement);
-  renderWithTemplate(footerTemplate, footerElement);
+    if (headerElement && footerElement) {
+      renderWithTemplate(headerTemplate, headerElement);
+      renderWithTemplate(footerTemplate, footerElement);
+    }
+  } catch (error) {
+    console.error("Error loading header or footer:", err);
+  }
 }
