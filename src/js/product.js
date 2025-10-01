@@ -4,7 +4,7 @@ import ProductDetails from "./ProductDetails.mjs";
 
 loadHeaderFooter();
 
-constructor(category) {
+constructor(category); {
   this.category = category;
 }
 

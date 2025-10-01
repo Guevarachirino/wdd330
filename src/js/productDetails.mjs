@@ -14,7 +14,7 @@ export default class ProductDetails {
             if (!this.product) throw new Error("Product not found.");
             this.renderProductDetails();
 
-            const addToCartButton = document.getElementById("addToCart");
+            const addToCartButton = document.getElementById("add-to-cart");
             if (addToCartButton) {
                 addToCartButton.addEventListener("click", this.addProductToCart.bind(this));
             } else {
@@ -43,7 +43,7 @@ function productDetailsTemplate(product) {
 
     const productImage = document.querySelector("#p-image");
     if (productImage) {
-        productImage.src = product.Images?.PrimparyExtraLarge || "";
+        productImage.src = product.Images?.PrimaryExtraLarge || "";
         productImage.alt = product.NameWithoutBrand || "";
     }
 
@@ -52,11 +52,22 @@ function productDetailsTemplate(product) {
             style: 'currency',
             currency: 'EUR',
         }).format(Number(product.FinalPrice) * 0.85 || 0);
-    document.querySelector("#p-price")?.textContent = `${euroPrice}`;
-    document.querySelector("#p-color")?.textContent = product.Colors[0]?.ColorName;
-    document.querySelector("#p-description")?.innerHTML = product.DescriptionHtmlSimple;
+    const priceElement = document.querySelector("#p-price");
+    if (priceElement) {
+        priceElement.textContent = euroPrice;
+    }
 
-    const addToCartButton = document.querySelector("#add-to-cart");
+    const colorElement = document.querySelector("#p-color");
+    if (colorElement) {
+        colorElement.textContent = product.Colors[0]?.ColorName;
+    }
+
+    const descElement = document.querySelector("#p-description");
+    if (descElement) {
+        descElement.innerHTML = product.DescriptionHtmlSimple;
+    }
+
+    const addToCartButton = document.getElementById("add-to-cart");
     if (addToCartButton) {
         addToCartButton.dataset.id = product.Id || "";
     }

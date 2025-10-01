@@ -63,16 +63,11 @@ async function loadTemplate(path) {
 
 export async function loadHeaderFooter() {
   try {
-    const headerHTML = await loadTemplate('partials/header.html');  // <-- check this path
-    const footerHTML = await loadTemplate('partials/footer.html');  // <-- and this
+    const headerHTML = await loadTemplate('../partials/header.html');
+    const footerHTML = await loadTemplate('../partials/footer.html');
     document.querySelector('header').innerHTML = headerHTML;
     document.querySelector('footer').innerHTML = footerHTML;
-
-    if (headerElement && footerElement) {
-      renderWithTemplate(headerTemplate, headerElement);
-      renderWithTemplate(footerTemplate, footerElement);
-    }
   } catch (error) {
-    console.error("Error loading header or footer:", err);
+    console.error("Error loading header or footer:", error);
   }
 }
