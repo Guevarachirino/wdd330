@@ -65,10 +65,12 @@ p {
 }
 
 .hero .logo {
-  position: absolute;
+  position: relative;
   left: calc(50% - 60px);
-  bottom: -15px;
+  bottom: 20px;
   background-color: white;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo--square {
@@ -279,27 +281,37 @@ button {
 #searchResults li:hover {
   background-color: #a49c6f; 
 }
-
-
-
-
-@media screen and (min-width: 500px) {
-  body {
-    max-width: 1080px;
-    margin: auto;
-  }
-
-  .mission {
-    font-size: 1.2em;
-  }
-
-  .cart-card {
-    font-size: inherit;
-    grid-template-columns: 150px auto 15%;
-  }
+.categories{
+  background-color: rgba(183, 185, 174, 0.446);
+  display: flex;
+  justify-content: center;
 }
 
-footer {
-  font-size: var(--small-font);
-  padding: 1em;
+/* img{
+  max-width: 100%;
+} */
+
+.icon img {
+  width: 50px;
+}
+
+@media screen and (min-width: 500px) {
+    body {
+      max-width: 1080px;
+      margin: auto;
+    }
+
+    .mission {
+      font-size: 1.2em;
+    }
+
+    .cart-card {
+      font-size: inherit;
+      grid-template-columns: 150px auto 15%;
+    }
+  }
+
+  footer {
+    font-size: var(--small-font);
+    padding: 1em;
 }

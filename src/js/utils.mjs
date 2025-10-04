@@ -31,8 +31,11 @@ export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param);
+  console.log("Parametro obtenido:", product);
   return product;
 }
+getParam("category");
+
 
 export function renderListWithTemplate(
   template,

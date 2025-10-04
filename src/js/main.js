@@ -2,17 +2,25 @@ import ProductData from "./ProductData.mjs"
 
 import ProductList from "./ProductList.mjs"
 
-import { loadHeaderFooter } from "./utils.mjs";
+import { getParam, loadHeaderFooter } from "./utils.mjs";
 
-
-const dataSource = new ProductData("tents");
+let category = getParam("category");
+if (category === null || category.trim() === "") {
+    category = "tents";
+}
+let dataSource = new ProductData(category);
 
 
 const listElement = document.querySelector(".product-list");
 
 
-const productList = new ProductList("tents", dataSource, listElement);
+
+let productList = new ProductList(category, dataSource, listElement);
 
 loadHeaderFooter();
 
 productList.init();
+
+// import { loadHeaderFooter } from "./utils.mjs";
+
+// loadHeaderFooter();
