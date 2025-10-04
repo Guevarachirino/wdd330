@@ -27,13 +27,9 @@ let category = getParam("category");
 console.log("🔥🔥🔥 EJECUTANDO PRODUCT-LISTING.JS 🔥🔥🔥");
 console.log("Archivo:", import.meta.url);
 
-
-
 console.log("Categoría obtenida:", category);
 
-// Si no hay categoría, usar tents por defecto
 if (!category || category.trim() === "") {
-    console.warn("⚠️ No hay categoría, usando 'tents' por defecto");
     category = "sleeping-bags";
 }
 

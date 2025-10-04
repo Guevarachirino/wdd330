@@ -287,12 +287,30 @@ button {
   justify-content: center;
 }
 
-/* img{
-  max-width: 100%;
-} */
 
 .icon img {
   width: 50px;
+}
+
+.product__swatches {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.2s;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.color-swatch.selected {
+  border: 2px solid #333;
 }
 
 @media screen and (min-width: 500px) {

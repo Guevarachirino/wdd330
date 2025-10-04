@@ -48,14 +48,11 @@ export default class ProductList {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
-    // console.log("📦 ProductList creado con categoría:", this.category);
   }
 
   async init() {
     try {
-      // console.log("🚀 Cargando productos de:", this.category);
       const list = await this.dataSource.getData(this.category);
-      // console.log("📋 Productos recibidos:", list.length);
 
       this.render(list);
 
@@ -69,9 +66,7 @@ export default class ProductList {
         titleElement.textContent = formattedCategory;
       }
 
-      // console.log("✅ Productos renderizados exitosamente");
     } catch (error) {
-      // console.error("❌ Error en init():", error);
       this.listElement.innerHTML =
         
         `<li class="error">Error al cargar productos</li>`;
