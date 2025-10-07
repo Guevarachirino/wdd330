@@ -9,31 +9,20 @@ function convertToJson(res) {
 }
 
 export default class ProductData {
-  constructor(category) {
-    this.category = category;
-    this.path = `../json/${this.category}.json`;
+  constructor() {
+    // this.category = category;
+    // this.path = `../public/json/${this.category}.json`;
   }
-
   async getData(category) {
-    try {
-      const response = await fetch(`${baseURL}products/search/${category}`);
-      const data = await convertToJson(response);
-      return data.Result;
-    } catch (error) {
-      console.error(`error fetching category "${category}":`, error);
-      return [];
-    }
-  }
+    const response = await fetch(`${baseURL}products/search/${category}`);
+    const data = await convertToJson(response);
 
+    return data.Result;
+  }
   async findProductById(id) {
-    try {
-      const response = await fetch(`${baseURL}product/${id}`);
-      const data = await convertToJson(response);
-      console.log(data.Result);
-      return data.Result;
-    } catch (error) {
-      console.error(`error fetching products by id "${id}`, error);
-      return null;
-    }
+    const response = await fetch(`${baseURL}product/${id}`);
+    const data = await convertToJson(response);
+    console.log(data.Result);
+    return data.Result;
   }
 }

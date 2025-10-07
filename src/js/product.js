@@ -4,10 +4,6 @@ import ProductDetails from "./ProductDetails.mjs";
 
 loadHeaderFooter();
 
-constructor(category); {
-  this.category = category;
-}
-
 const productId = getParam("product");
 const dataSource = new ProductData();
 
